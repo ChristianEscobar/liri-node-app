@@ -63,7 +63,6 @@ function myTweets() {
 		for(var i=0; i<tweets.length; i++) {
 			counter++;
 
-			//var tweetDate = new Date(tweets[i].created_at);
 			var tweetDate = new Date(tweets[i].created_at);
 			var test = Moment(tweetDate);
 			var tweetText = tweets[i].text;
@@ -79,8 +78,26 @@ function myTweets() {
 function spotifyThisSong(songName) {
 	console.log('Spotify');
 
+	var query = '';
+
 	if(!songName) {
-		console.log('A song name must be provided');
+		console.log('No song name provided, using default value');
+
+		var defaultSongName = 'The Sign';
+		var defaultArtistName = 'Ace of Base';
+
+		// Replace spaces with %20AND%20
+		defaultSongName = encodeSpacesInStringForSpotify(defaultSongName);
+		defaultArtistName = encodeSpacesInStringForSpotify(defaultArtistName);
+
+		// Build query
+		query = 'track:' + defaultSongName + ' artist:' + defaultArtistName;
+
+	} else {
+		songName = encodeSpacesInStringForSpotify(songName);
+
+		// Buid query
+		query = 'track:' + songName;
 	}
 
 	var spotify = new Spotify({
@@ -88,12 +105,23 @@ function spotifyThisSong(songName) {
   	secret: spotifyClientSecret
 	});
 
-	spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+	spotify.search({ type: 'track', query: query }, function(err, data) {
   	if (err) {
     	return console.log('Error occurred: ' + err);
   	}
- 
-		console.log(data); 
+
+  	for(var i=0; i<data.tracks.items.length; i++){
+  		var artist = data.tracks.items[i].artists[0].name;
+  		var song = data.tracks.items[i].name;
+  		var preview = data.tracks.items[i].preview_url;
+  		var album = data.tracks.items[i].album.name;
+
+  		console.log((i + 1 + '. ') + ' Artist:  ' + artist);
+  		console.log('\t|-- Track:  ' + song);
+  		console.log('\t|-- Preview:  ' + preview);
+  		console.log('\t|-- Album:  ' + album);
+  	}
+		
 	});
 }
 
@@ -107,4 +135,8 @@ function movieThis(movieName) {
 
 function doWhatItSays() {
 	console.log('Do What It Says');
+}
+
+function encodeSpacesInStringForSpotify(stringValue) {
+	return stringValue.split(' ').join('%20AND%20');
 }
