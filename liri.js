@@ -2,6 +2,7 @@ var Keys = require('./keys.js');
 var Twitter = require('twitter');
 var Moment = require('moment');
 var Spotify = require('node-spotify-api');
+var Request = require('request');
 
 var twitterConsumerKey = Keys.twitterKeys.consumer_key;
 var twitterConsumerSecret = Keys.twitterKeys.consumer_secret;
@@ -10,6 +11,8 @@ var twitterAccessTokeySecret = Keys.twitterKeys.access_token_secret;
 
 var spotifyClientId = Keys.spotifyKeys.client_id;
 var spotifyClientSecret = Keys.spotifyKeys.client_secret;
+
+var omdbAPIKey = Keys.omdbKeys.api_key;
 
 var userCommand = process.argv[2];
 var commandParam = process.argv[3];
@@ -42,7 +45,7 @@ function displayCommands() {
 }
 
 function myTweets() {
-	//GET https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2
+	console.log('-- Top 20 Tweets --\n');
 
 	var client = new Twitter({
 		consumer_key: twitterConsumerKey,
@@ -55,8 +58,6 @@ function myTweets() {
 		if(error) {
 			throw error;
 		}
-
-		console.log('-- Top 20 Tweets --');
 
 		var counter = 0;
 
@@ -76,7 +77,7 @@ function myTweets() {
 }
 
 function spotifyThisSong(songName) {
-	console.log('Spotify');
+	console.log('-- Spotify --\n');
 
 	var query = '';
 
@@ -126,11 +127,22 @@ function spotifyThisSong(songName) {
 }
 
 function movieThis(movieName) {
-	console.log('Movie This');
+	var omdbURL = 'http://www.omdbapi.com/?'
+		+ 'apikey=' + omdbAPIKey;
 
 	if(!movieName) {
-		console.log('A movie name must be provided');
+		movieName = 'Mr. Nobody';
 	}
+
+	omdbURL += '&t=' + movieName;
+
+	console.log(omdbURL);
+
+	Request(omdbURL, function (error, response, body) {
+  	console.log('error:', error); // Print the error if one occurred
+  	console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+  	console.log('body:', body); // Print the HTML for the Google homepage.
+	});
 }
 
 function doWhatItSays() {
