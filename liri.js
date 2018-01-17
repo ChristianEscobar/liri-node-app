@@ -1,5 +1,6 @@
 var keysToTwitter = require('./keys.js');
 var Twitter = require('twitter');
+var moment = require('moment');
 
 var consumerKey = keysToTwitter.consumer_key;
 var consumerSecret = keysToTwitter.consumer_secret;
@@ -39,8 +40,6 @@ function displayCommands() {
 function myTweets() {
 	//GET https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2
 
-	console.log('Tweets');
-
 	var client = new Twitter({
 		consumer_key: consumerKey,
   	consumer_secret: consumerSecret,
@@ -48,17 +47,29 @@ function myTweets() {
   	access_token_secret: accessTokeySecret
 	});
 
-	client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
-  	stream.on('data', function(tweet) {
-    	console.log(tweet.text);
-  	});
+	client.get('statuses/user_timeline', function(error, tweets, response){
+		if(error) {
+			throw error;
+		}
 
-  	stream.on('error', function(error) {
-    	console.log(error);
-  	});
-});
+		console.log('-- Top 20 Tweets --');
 
-	console.log(client);
+		var counter = 0;
+
+		for(var i=0; i<tweets.length; i++) {
+			counter++;
+
+			//var tweetDate = new Date(tweets[i].created_at);
+			var tweetDate = new Date(tweets[i].created_at);
+			var test = moment(tweetDate);
+			var tweetText = tweets[i].text;
+
+			console.log(counter + '.  ' + test.format('MMM DD YYYY hh:mm A'));
+			console.log('\t' + tweetText);
+			
+		}
+
+	});
 }
 
 function spotifyThisSong(songName) {
