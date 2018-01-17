@@ -1,11 +1,15 @@
-var keys = require('./keys.js');
+var Keys = require('./keys.js');
 var Twitter = require('twitter');
-var moment = require('moment');
+var Moment = require('moment');
+var Spotify = require('node-spotify-api');
 
-var twitterConsumerKey = keys.twitterKeys.consumer_key;
-var twitterConsumerSecret = keys.twitterKeys.consumer_secret;
-var twitterAccessTokenKey = keys.twitterKeys.access_token_key;
-var twitterAccessTokeySecret = keys.twitterKeys.access_token_secret;
+var twitterConsumerKey = Keys.twitterKeys.consumer_key;
+var twitterConsumerSecret = Keys.twitterKeys.consumer_secret;
+var twitterAccessTokenKey = Keys.twitterKeys.access_token_key;
+var twitterAccessTokeySecret = Keys.twitterKeys.access_token_secret;
+
+var spotifyClientId = Keys.spotifyKeys.client_id;
+var spotifyClientSecret = Keys.spotifyKeys.client_secret;
 
 var userCommand = process.argv[2];
 var commandParam = process.argv[3];
@@ -61,7 +65,7 @@ function myTweets() {
 
 			//var tweetDate = new Date(tweets[i].created_at);
 			var tweetDate = new Date(tweets[i].created_at);
-			var test = moment(tweetDate);
+			var test = Moment(tweetDate);
 			var tweetText = tweets[i].text;
 
 			console.log(counter + '.  ' + test.format('MMM DD YYYY hh:mm A'));
@@ -78,6 +82,19 @@ function spotifyThisSong(songName) {
 	if(!songName) {
 		console.log('A song name must be provided');
 	}
+
+	var spotify = new Spotify({
+  	id: spotifyClientId,
+  	secret: spotifyClientSecret
+	});
+
+	spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
+  	if (err) {
+    	return console.log('Error occurred: ' + err);
+  	}
+ 
+		console.log(data); 
+	});
 }
 
 function movieThis(movieName) {
