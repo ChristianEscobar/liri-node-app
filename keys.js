@@ -6,8 +6,11 @@ var twitterKeys = {
 }
 
 var spotifyKeys = {
-	client_id: 3e53106e075444c5a8f1c049eac1165e,
-	client_secret: ae82286e30ce45a095c338133cacf622
+	client_id: '3e53106e075444c5a8f1c049eac1165e',
+	client_secret: 'ae82286e30ce45a095c338133cacf622'
 }
 
-module.exports = twitterKeys;
+module.exports = {
+	twitterKeys,
+	spotifyKeys
+}

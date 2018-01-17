@@ -1,11 +1,11 @@
-var keysToTwitter = require('./keys.js');
+var keys = require('./keys.js');
 var Twitter = require('twitter');
 var moment = require('moment');
 
-var consumerKey = keysToTwitter.consumer_key;
-var consumerSecret = keysToTwitter.consumer_secret;
-var accessTokenKey = keysToTwitter.access_token_key;
-var accessTokeySecret = keysToTwitter.access_token_secret;
+var twitterConsumerKey = keys.twitterKeys.consumer_key;
+var twitterConsumerSecret = keys.twitterKeys.consumer_secret;
+var twitterAccessTokenKey = keys.twitterKeys.access_token_key;
+var twitterAccessTokeySecret = keys.twitterKeys.access_token_secret;
 
 var userCommand = process.argv[2];
 var commandParam = process.argv[3];
@@ -41,10 +41,10 @@ function myTweets() {
 	//GET https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2
 
 	var client = new Twitter({
-		consumer_key: consumerKey,
-  	consumer_secret: consumerSecret,
-  	access_token_key: accessTokenKey,
-  	access_token_secret: accessTokeySecret
+		consumer_key: twitterConsumerKey,
+  	consumer_secret: twitterConsumerSecret,
+  	access_token_key: twitterAccessTokenKey,
+  	access_token_secret: twitterAccessTokeySecret
 	});
 
 	client.get('statuses/user_timeline', function(error, tweets, response){
