@@ -3,6 +3,7 @@ var Twitter = require('twitter');
 var Moment = require('moment');
 var Spotify = require('node-spotify-api');
 var Request = require('request');
+var Fs = require('fs');
 
 var twitterConsumerKey = Keys.twitterKeys.consumer_key;
 var twitterConsumerSecret = Keys.twitterKeys.consumer_secret;
@@ -17,21 +18,25 @@ var omdbAPIKey = Keys.omdbKeys.api_key;
 var userCommand = process.argv[2];
 var commandParam = process.argv[3];
 
-switch(userCommand) {
-	case 'my-tweets':
-		myTweets();
-		break;
-	case 'spotify-this-song':
-		spotifyThisSong(commandParam.trim());
-		break;
-	case 'movie-this':
-		movieThis(commandParam.trim());
-		break;
-	case 'do-what-it-says':
-		doWhatItSays();
-		break;
-	default:
-		displayCommands();
+start(userCommand, commandParam);
+
+function start(liriCommand, commandInput) {
+		switch(liriCommand) {
+			case 'my-tweets':
+				myTweets();
+				break;
+			case 'spotify-this-song':
+				spotifyThisSong(commandInput);
+				break;
+			case 'movie-this':
+				movieThis(commandInput);
+				break;
+			case 'do-what-it-says':
+				doWhatItSays();
+				break;
+			default:
+				displayCommands();
+	}
 }
 
 function displayCommands() {
@@ -61,6 +66,13 @@ function myTweets() {
 			throw error;
 		}
 
+		// Display error if no data was found
+		if(tweets.length === 0) {
+			console.log('-> No data returned from Twitter.');
+
+			return;
+		}
+
 		var counter = 0;
 
 		for(var i=0; i<tweets.length; i++) {
@@ -74,7 +86,6 @@ function myTweets() {
 			console.log('\t' + tweetText);
 			
 		}
-
 	});
 }
 
@@ -101,8 +112,12 @@ function spotifyThisSong(songName) {
 	} else {
 		songName = encodeSpacesInStringForSpotify(songName);
 
+		console.log('!!! ' + songName);
+
 		// Buid query
-		query = 'track:' + songName;
+		query = 'track:' + songName.trim();
+
+		console.log('!!! ' + query);
 	}
 
 	var spotify = new Spotify({
@@ -112,7 +127,13 @@ function spotifyThisSong(songName) {
 
 	spotify.search({ type: 'track', query: query }, function(err, data) {
   	if (err) {
-    	return console.log('Error occurred: ' + err);
+    	throw err;
+  	}
+
+  	if(data.tracks.items.length === 0) {
+  		console.log('-> No data returned from Spotify.');
+
+  		return;
   	}
 
   	for(var i=0; i<data.tracks.items.length; i++){
@@ -144,37 +165,61 @@ function movieThis(movieName) {
 		movieName = 'Mr. Nobody';
 	}
 
-	omdbURL += '&t=' + movieName;
+	omdbURL += '&t=' + movieName.trim();
 
 	Request(omdbURL, function (error, response, body) {
 
+		if(error) throw error;
+
 		var jsonBody = JSON.parse(body);
 
-  		console.log('Title: ' + jsonBody.Title);
-  		console.log('Release Year: ' + jsonBody.Year);
-  		console.log('Imdb Rating: ' + jsonBody.imdbRating);
+		console.log('Title: ' + jsonBody.Title);
+		console.log('Release Year: ' + jsonBody.Year);
+		console.log('Imdb Rating: ' + jsonBody.imdbRating);
 
-  		// Rotten Tomatoes rating
-  		var rottenTomatoesRating = 'N/A';
+		// Rotten Tomatoes rating
+		var rottenTomatoesRating = 'N/A';
 
-  		for(var prop in jsonBody.Ratings) {
-  			if(jsonBody.Ratings[prop].Source.toLowerCase() === 'rotten tomatoes') {
-  				rottenTomatoesRating =  jsonBody.Ratings[prop].Value;
+		for(var prop in jsonBody.Ratings) {
+			if(jsonBody.Ratings[prop].Source.toLowerCase() === 'rotten tomatoes') {
+				rottenTomatoesRating =  jsonBody.Ratings[prop].Value;
 
-  				break;
-  			}
-  		}
+				break;
+			}
+		}
 
-  		console.log('Rotten Tomatoes Rating: ' + rottenTomatoesRating);
-  		console.log('Country: ' + jsonBody.Country);
-  		console.log('Language: ' + jsonBody.Language);
-  		console.log('Plot: ' + jsonBody.Plot);
-  		console.log('Actors: ' + jsonBody.Actors);
+		console.log('Rotten Tomatoes Rating: ' + rottenTomatoesRating);
+		console.log('Country: ' + jsonBody.Country);
+		console.log('Language: ' + jsonBody.Language);
+		console.log('Plot: ' + jsonBody.Plot);
+		console.log('Actors: ' + jsonBody.Actors);
 	});
 }
 
 function doWhatItSays() {
-	console.log('Do What It Says');
+	console.log('**************************');
+	console.log('*    Do What It Says     *');
+	console.log('**************************\n');
+
+	Fs.readFile('random.txt', 'utf8', (error, data) => {
+		if(error) throw error;
+		
+		if(data.length === 0) {
+			console.log('-> No data found in random.txt.  Make sure the file contains valid LIRI commands.');
+
+			displayCommands();
+
+			return;
+		} else {
+			// split file contents in order to extract command and command input
+			var fileContentsArray = data.split(',');
+
+			var liriCommand = fileContentsArray[0];
+			var commandInput = fileContentsArray[1];
+
+			start(liriCommand, commandInput);
+		}
+	});
 }
 
 function encodeSpacesInStringForSpotify(stringValue) {
