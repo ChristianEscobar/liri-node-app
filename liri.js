@@ -43,10 +43,10 @@ function displayCommands() {
 	console.log('**************************');
 	console.log('*   Available Commands   *');
 	console.log('**************************\n');
-	console.log('1. node liri.js my-tweets\n');
-	console.log('2. node liri.js spotify-this-song \'<song name here>\'\n');
-	console.log('3. node liri.js movie-this \'<movie name here>\'\n');
-	console.log('4. node liri.js do-what-it-says');
+	console.log('1. node liri my-tweets\n');
+	console.log('2. node liri spotify-this-song \'<song name here>\'\n');
+	console.log('3. node liri movie-this \'<movie name here>\'\n');
+	console.log('4. node liri do-what-it-says');
 }
 
 function myTweets() {
@@ -110,14 +110,12 @@ function spotifyThisSong(songName) {
 		query = 'track:' + defaultSongName + ' artist:' + defaultArtistName;
 
 	} else {
-		songName = encodeSpacesInStringForSpotify(songName);
+		songName = songName.trim();
 
-		console.log('!!! ' + songName);
+		songName = encodeSpacesInStringForSpotify(songName);
 
 		// Buid query
 		query = 'track:' + songName.trim();
-
-		console.log('!!! ' + query);
 	}
 
 	var spotify = new Spotify({
@@ -217,11 +215,21 @@ function doWhatItSays() {
 			var liriCommand = fileContentsArray[0];
 			var commandInput = fileContentsArray[1];
 
+			// Bad things will happen if the command in the random.txt file is do-what-it-says =)
+			if(liriCommand === 'do-what-it-says') {
+				console.log('KABOOOM!!!  I don\'t recommend doing that!');
+
+				return;
+			}
+
 			start(liriCommand, commandInput);
 		}
 	});
 }
 
 function encodeSpacesInStringForSpotify(stringValue) {
+	// Removing double quotes to address bug found when reading from the random.txt file
+	stringValue = stringValue.split('"').join('');
+
 	return stringValue.split(' ').join('%20AND%20');
 }
