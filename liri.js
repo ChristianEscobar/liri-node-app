@@ -22,10 +22,10 @@ switch(userCommand) {
 		myTweets();
 		break;
 	case 'spotify-this-song':
-		spotifyThisSong(commandParam);
+		spotifyThisSong(commandParam.trim());
 		break;
 	case 'movie-this':
-		movieThis(commandParam);
+		movieThis(commandParam.trim());
 		break;
 	case 'do-what-it-says':
 		doWhatItSays();
@@ -45,7 +45,9 @@ function displayCommands() {
 }
 
 function myTweets() {
-	console.log('-- Top 20 Tweets --\n');
+	console.log('**************************');
+	console.log('*     Top 20 Tweets      *');
+	console.log('**************************\n');
 
 	var client = new Twitter({
 		consumer_key: twitterConsumerKey,
@@ -77,12 +79,14 @@ function myTweets() {
 }
 
 function spotifyThisSong(songName) {
-	console.log('-- Spotify --\n');
+	console.log('**************************');
+	console.log('*         Spotify        *');
+	console.log('**************************\n');
 
 	var query = '';
 
 	if(!songName) {
-		console.log('No song name provided, using default value');
+		console.log('-> Song title not provided, default will be used. <-\n');
 
 		var defaultSongName = 'The Sign';
 		var defaultArtistName = 'Ace of Base';
@@ -127,21 +131,45 @@ function spotifyThisSong(songName) {
 }
 
 function movieThis(movieName) {
+	console.log('**************************');
+	console.log('*           OMDB         *');
+	console.log('**************************\n');
+
 	var omdbURL = 'http://www.omdbapi.com/?'
 		+ 'apikey=' + omdbAPIKey;
 
-	if(!movieName) {
+	if(!movieName || movieName.length === 0) {
+		console.log('-> Movie title not provided, default will be used. <-\n');
+
 		movieName = 'Mr. Nobody';
 	}
 
 	omdbURL += '&t=' + movieName;
 
-	console.log(omdbURL);
-
 	Request(omdbURL, function (error, response, body) {
-  	console.log('error:', error); // Print the error if one occurred
-  	console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  	console.log('body:', body); // Print the HTML for the Google homepage.
+
+		var jsonBody = JSON.parse(body);
+
+  		console.log('Title: ' + jsonBody.Title);
+  		console.log('Release Year: ' + jsonBody.Year);
+  		console.log('Imdb Rating: ' + jsonBody.imdbRating);
+
+  		// Rotten Tomatoes rating
+  		var rottenTomatoesRating = 'N/A';
+
+  		for(var prop in jsonBody.Ratings) {
+  			if(jsonBody.Ratings[prop].Source.toLowerCase() === 'rotten tomatoes') {
+  				rottenTomatoesRating =  jsonBody.Ratings[prop].Value;
+
+  				break;
+  			}
+  		}
+
+  		console.log('Rotten Tomatoes Rating: ' + rottenTomatoesRating);
+  		console.log('Country: ' + jsonBody.Country);
+  		console.log('Language: ' + jsonBody.Language);
+  		console.log('Plot: ' + jsonBody.Plot);
+  		console.log('Actors: ' + jsonBody.Actors);
 	});
 }
 
