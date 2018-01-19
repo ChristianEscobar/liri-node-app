@@ -21,21 +21,23 @@ var commandParam = process.argv[3];
 start(userCommand, commandParam);
 
 function start(liriCommand, commandInput) {
-		switch(liriCommand) {
-			case 'my-tweets':
-				myTweets();
-				break;
-			case 'spotify-this-song':
-				spotifyThisSong(commandInput);
-				break;
-			case 'movie-this':
-				movieThis(commandInput);
-				break;
-			case 'do-what-it-says':
-				doWhatItSays();
-				break;
-			default:
-				displayCommands();
+	writeToFile(liriCommand + ' ' + commandInput + '\n');
+
+	switch(liriCommand) {
+		case 'my-tweets':
+			myTweets();
+			break;
+		case 'spotify-this-song':
+			spotifyThisSong(commandInput);
+			break;
+		case 'movie-this':
+			movieThis(commandInput);
+			break;
+		case 'do-what-it-says':
+			doWhatItSays();
+			break;
+		default:
+			displayCommands();
 	}
 }
 
