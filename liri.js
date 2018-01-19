@@ -54,6 +54,11 @@ function myTweets() {
 	console.log('*     Top 20 Tweets      *');
 	console.log('**************************\n');
 
+	writeToFile('**************************\n');
+	writeToFile('*     Top 20 Tweets      *\n');
+	writeToFile('**************************\n');
+
+
 	var client = new Twitter({
 		consumer_key: twitterConsumerKey,
   	consumer_secret: twitterConsumerSecret,
@@ -70,6 +75,8 @@ function myTweets() {
 		if(tweets.length === 0) {
 			console.log('-> No data returned from Twitter.');
 
+			writeToFile('-> No data returned from Twitter.\n');
+
 			return;
 		}
 
@@ -79,12 +86,17 @@ function myTweets() {
 			counter++;
 
 			var tweetDate = new Date(tweets[i].created_at);
-			var test = Moment(tweetDate);
+			var momentDate = Moment(tweetDate);
 			var tweetText = tweets[i].text;
 
-			console.log(counter + '.  ' + test.format('MMM DD YYYY hh:mm A'));
+			console.log(counter + '.  ' + momentDate.format('MMM DD YYYY hh:mm A'));
+
+			writeToFile(counter + '.  ' + momentDate.format('MMM DD YYYY hh:mm A') + '\n');
+
 			console.log('\t' + tweetText);
+
 			
+			writeToFile('\t' + tweetText + '\n');
 		}
 	});
 }
@@ -94,10 +106,16 @@ function spotifyThisSong(songName) {
 	console.log('*         Spotify        *');
 	console.log('**************************\n');
 
+	writeToFile('**************************\n');
+	writeToFile('*         Spotify        *\n');
+	writeToFile('**************************\n');
+
 	var query = '';
 
 	if(!songName) {
 		console.log('-> Song title not provided, default will be used. <-\n');
+
+		writeToFile('-> Song title not provided, default will be used. <-\n');
 
 		var defaultSongName = 'The Sign';
 		var defaultArtistName = 'Ace of Base';
@@ -131,6 +149,8 @@ function spotifyThisSong(songName) {
   	if(data.tracks.items.length === 0) {
   		console.log('-> No data returned from Spotify.');
 
+  		writeToFile('-> No data returned from Spotify.\n');
+
   		return;
   	}
 
@@ -144,6 +164,11 @@ function spotifyThisSong(songName) {
   		console.log('\t|-- Track:  ' + song);
   		console.log('\t|-- Preview:  ' + preview);
   		console.log('\t|-- Album:  ' + album);
+
+  		writeToFile((i + 1 + '. ') + ' Artist:  ' + artist + '\n');
+  		writeToFile('\t|-- Track:  ' + song + '\n');
+  		writeToFile('\t|-- Preview:  ' + preview + '\n');
+  		writeToFile('\t|-- Album:  ' + album + '\n');
   	}
 		
 	});
@@ -154,11 +179,17 @@ function movieThis(movieName) {
 	console.log('*           OMDB         *');
 	console.log('**************************\n');
 
+	writeToFile('**************************\n');
+	writeToFile('*           OMDB         *\n');
+	writeToFile('**************************\n');
+
 	var omdbURL = 'http://www.omdbapi.com/?'
 		+ 'apikey=' + omdbAPIKey;
 
 	if(!movieName || movieName.length === 0) {
 		console.log('-> Movie title not provided, default will be used. <-\n');
+
+		writeToFile('-> Movie title not provided, default will be used. <-\n');
 
 		movieName = 'Mr. Nobody';
 	}
@@ -172,8 +203,16 @@ function movieThis(movieName) {
 		var jsonBody = JSON.parse(body);
 
 		console.log('Title: ' + jsonBody.Title);
+
+		writeToFile('Title: ' + jsonBody.Title + '\n');
+
 		console.log('Release Year: ' + jsonBody.Year);
-		console.log('Imdb Rating: ' + jsonBody.imdbRating);
+
+		writeToFile('Release Year: ' + jsonBody.Year + '\n');
+
+		console.log('IMDB Rating: ' + jsonBody.imdbRating);
+
+		writeToFile('IMDB Rating: ' + jsonBody.imdbRating + '\n');
 
 		// Rotten Tomatoes rating
 		var rottenTomatoesRating = 'N/A';
@@ -187,10 +226,24 @@ function movieThis(movieName) {
 		}
 
 		console.log('Rotten Tomatoes Rating: ' + rottenTomatoesRating);
+
+		writeToFile('Rotten Tomatoes Rating: ' + rottenTomatoesRating + '\n');
+
 		console.log('Country: ' + jsonBody.Country);
+
+		writeToFile('Country: ' + jsonBody.Country + '\n');
+
 		console.log('Language: ' + jsonBody.Language);
+
+		writeToFile('Language: ' + jsonBody.Language + '\n');
+
 		console.log('Plot: ' + jsonBody.Plot);
+
+		writeToFile('Plot: ' + jsonBody.Plot + '\n');
+
 		console.log('Actors: ' + jsonBody.Actors);
+
+		writeToFile('Actors: ' + jsonBody.Actors + '\n');
 	});
 }
 
@@ -199,11 +252,17 @@ function doWhatItSays() {
 	console.log('*    Do What It Says     *');
 	console.log('**************************\n');
 
+	writeToFile('**************************\n');
+	writeToFile('*    Do What It Says     *\n');
+	writeToFile('**************************\n');
+
 	Fs.readFile('random.txt', 'utf8', (error, data) => {
 		if(error) throw error;
 		
 		if(data.length === 0) {
 			console.log('-> No data found in random.txt.  Make sure the file contains valid LIRI commands.');
+
+			writeToFile('-> No data found in random.txt.  Make sure the file contains valid LIRI commands.' + '\n');
 
 			displayCommands();
 
@@ -219,6 +278,8 @@ function doWhatItSays() {
 			if(liriCommand === 'do-what-it-says') {
 				console.log('KABOOOM!!!  I don\'t recommend doing that!');
 
+				writeToFile('KABOOOM!!!  I don\'t recommend doing that!\n');
+
 				return;
 			}
 
@@ -232,4 +293,10 @@ function encodeSpacesInStringForSpotify(stringValue) {
 	stringValue = stringValue.split('"').join('');
 
 	return stringValue.split(' ').join('%20AND%20');
+}
+
+function writeToFile(writeThisLine) {
+	Fs.appendFile('log.txt', writeThisLine, (error) => {
+		if(error) throw error;
+	});
 }
