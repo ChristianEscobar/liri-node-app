@@ -1,0 +1,341 @@
+undefined undefined
+my-tweets undefined
+**************************
+*     Top 20 Tweets      *
+**************************
+1.  Jan 16 2018 09:36 PM
+	tweet tweet
+2.  Jan 16 2018 09:35 PM
+	Working with nodejs
+3.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
+4.  Jan 16 2018 08:39 PM
+	Oh boy Oh boy!
+	This is my first tweet!
+5.  Jan 15 2018 03:16 PM
+spotify-this-song undefined
+**************************
+**************************
+*         Spotify        *
+-> Song title not provided, default will be used. <-
+1.  Artist:  Ace of Base
+	|-- Track:  The Sign
+	|-- Preview:  https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (US Album) [Remastered]
+2.  Artist:  Ace of Base
+	|-- Track:  The Sign
+	|-- Preview:  https://p.scdn.co/mp3-preview/5ca0168d6b58e0f993b2b741af90ecc7c9b16893?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Greatest Hits
+3.  Artist:  Ace of Base
+	|-- Track:  The Sign
+	|-- Preview:  https://p.scdn.co/mp3-preview/02965a67aeec3b3775c91ec1e391ce164c76e488?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Happy Nation (U.S. Version) [Remastered]
+4.  Artist:  Ace of Base
+	|-- Preview:  https://p.scdn.co/mp3-preview/5ca0168d6b58e0f993b2b741af90ecc7c9b16893?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  The Sign
+	|-- Album:  The Sign (The Remixes)
+5.  Artist:  Ace of Base
+	|-- Album:  The Sign (The Remixes)
+	|-- Track:  The Sign
+	|-- Preview:  https://p.scdn.co/mp3-preview/5ca0168d6b58e0f993b2b741af90ecc7c9b16893?cid=3e53106e075444c5a8f1c049eac1165e
+6.  Artist:  Ace of Base
+	|-- Track:  The Sign - Ultimix
+	|-- Preview:  https://p.scdn.co/mp3-preview/2c3e2f82c037557abc04c1a2d76b828c4d521838?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+7.  Artist:  Ace of Base
+	|-- Track:  The Sign - Long Version
+	|-- Preview:  https://p.scdn.co/mp3-preview/ccf516ab83dc899b53817816665cd42388cf6724?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+8.  Artist:  Ace of Base
+	|-- Preview:  https://p.scdn.co/mp3-preview/09e61a41305b12e2832c9cbea2010cbaaa788831?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  The Sign - Ultimix
+	|-- Album:  The Sign (The Remixes)
+9.  Artist:  Ace of Base
+	|-- Track:  The Sign - Long Version
+	|-- Preview:  https://p.scdn.co/mp3-preview/0f314a0cc1fbb59cd6934437bef37eb14b738480?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+10.  Artist:  Ace of Base
+	|-- Preview:  https://p.scdn.co/mp3-preview/919c1e7e785733af13db8054540742ac6aede514?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Classic Remixes
+	|-- Track:  The Sign - The Remix
+11.  Artist:  Ace of Base
+	|-- Track:  The Sign - The Remix
+	|-- Preview:  https://p.scdn.co/mp3-preview/082619adfb4e6757ef8fc9de5125a925b209544f?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+12.  Artist:  Ace of Base
+	|-- Track:  The Sign - The Remix
+	|-- Preview:  https://p.scdn.co/mp3-preview/082619adfb4e6757ef8fc9de5125a925b209544f?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+13.  Artist:  Ace of Base
+	|-- Track:  The Sign - Dub Version
+	|-- Preview:  https://p.scdn.co/mp3-preview/63baba8b57fda215fe785e46f71e97a30b5e37e8?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+14.  Artist:  Ace of Base
+	|-- Track:  The Sign - Dub Version
+	|-- Preview:  https://p.scdn.co/mp3-preview/63baba8b57fda215fe785e46f71e97a30b5e37e8?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  The Sign (The Remixes)
+15.  Artist:  Ace Of Base Tribute
+	|-- Preview:  https://p.scdn.co/mp3-preview/4f5c0e369e693cbba5b36ada75078dde4d32d9b9?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  The Sign
+	|-- Album:  A Salute To Ace Of Base
+spotify-this-song Happy
+**************************
+**************************
+*         Spotify        *
+1.  Artist:  Thomas Rhett
+	|-- Track:  Die A Happy Man
+	|-- Preview:  null
+	|-- Album:  Tangled Up
+	|-- Track:  Happy Xmas (War Is Over) - 2010 Digital Remaster
+2.  Artist:  John Lennon
+	|-- Preview:  null
+	|-- Album:  Power To The People - The Hits
+3.  Artist:  Mudvayne
+	|-- Preview:  https://p.scdn.co/mp3-preview/a4972554181a20b1c1b259666f1a5955d526d91e?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  Happy?
+	|-- Album:  Lost and Found
+4.  Artist:  Pharrell Williams
+	|-- Track:  Happy
+	|-- Album:  Despicable Me 2 (Original Motion Picture Soundtrack)
+	|-- Preview:  https://p.scdn.co/mp3-preview/609cf640a652b3ca4d22b1d604f0885b7a591af9?cid=3e53106e075444c5a8f1c049eac1165e
+5.  Artist:  The Turtles
+	|-- Track:  Happy Together
+	|-- Preview:  https://p.scdn.co/mp3-preview/be70befd16aac0ed18e1bab29513f5d84188415c?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Happy Together
+	|-- Track:  Fake Happy
+6.  Artist:  Paramore
+	|-- Preview:  https://p.scdn.co/mp3-preview/62dbd4df9d5a3bce321f79073954bcc9fbb6b2f7?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  After Laughter
+7.  Artist:  *NSYNC
+	|-- Track:  Merry Christmas, Happy Holidays
+	|-- Preview:  https://p.scdn.co/mp3-preview/c3cac83aac03f9d743a3c9e28d8bd53d115ee206?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Christmas Hits
+8.  Artist:  Weezer
+	|-- Track:  Happy Hour
+	|-- Preview:  https://p.scdn.co/mp3-preview/fd5690768d4a7ddb14aad7336a398a025a422c99?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Pacific Daydream
+9.  Artist:  *NSYNC
+	|-- Preview:  https://p.scdn.co/mp3-preview/24ac356f3a04d2c3554e27026b36812e60dac1f8?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  Merry Christmas, Happy Holidays
+	|-- Album:  Home For Christmas
+10.  Artist:  Bring Me The Horizon
+	|-- Preview:  https://p.scdn.co/mp3-preview/c2c7652171ee1e34ddc6634cd339ce10a3425e6d?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  Happy Song
+	|-- Album:  That's The Spirit
+11.  Artist:  Andy Williams
+	|-- Track:  Happy Holiday / The Holiday Season
+	|-- Album:  The Andy Williams Christmas Album
+	|-- Preview:  https://p.scdn.co/mp3-preview/73f32ed18190c9e8da9a088c2b9017d35b0f9004?cid=3e53106e075444c5a8f1c049eac1165e
+12.  Artist:  Pentatonix
+	|-- Track:  Merry Christmas, Happy Holidays
+	|-- Album:  A Pentatonix Christmas Deluxe
+	|-- Preview:  https://p.scdn.co/mp3-preview/28953b53fe6f1b9dac423609069cb7d5afd55aed?cid=3e53106e075444c5a8f1c049eac1165e
+13.  Artist:  Weezer
+	|-- Album:  Happy Hour (Ødyssey Remix)
+	|-- Preview:  https://p.scdn.co/mp3-preview/6d9b028a52ea97f3bd58f36d3c35518342a13fb3?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  Happy Hour - Ødyssey Remix
+14.  Artist:  Pharrell Williams
+	|-- Preview:  https://p.scdn.co/mp3-preview/67cffdcb7e3c82a5eb2e5f0bb235d377ccc94eeb?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  G I R L
+	|-- Track:  Happy - From "Despicable Me 2"
+	|-- Track:  Happy
+15.  Artist:  Ashanti
+	|-- Preview:  null
+	|-- Album:  Ashanti
+16.  Artist:  Avril Lavigne
+	|-- Track:  My Happy Ending
+	|-- Preview:  https://p.scdn.co/mp3-preview/76a3901cdd340ba170ce7dbc9de0ecf8aa868ece?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Under My Skin
+17.  Artist:  FRND
+	|-- Preview:  https://p.scdn.co/mp3-preview/43a15b1ead8817aa80c4de9c57039342d8c03ec3?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Track:  Be Happy
+	|-- Album:  Be Happy
+18.  Artist:  Nacho
+	|-- Track:  Happy Happy
+	|-- Preview:  null
+	|-- Album:  Happy Happy
+19.  Artist:  Weathers
+	|-- Track:  Happy Pills
+	|-- Preview:  https://p.scdn.co/mp3-preview/70f0decc2f0fa4924ef4d0c68026789f2676f47c?cid=3e53106e075444c5a8f1c049eac1165e
+	|-- Album:  Happy Pills
+20.  Artist:  Troye Sivan
+	|-- Track:  Happy Little Pill
+	|-- Preview:  null
+	|-- Album:  Happy Little Pill
+undefined undefined
+movie-this undefined
+*           OMDB         *
+**************************
+**************************
+-> Movie title not provided, default will be used. <-
+Title: Mr. Nobody
+Release Year: 2009
+IMDB Rating: 7.9
+Rotten Tomatoes Rating: 66%
+Country: Belgium, Germany, Canada, France, USA, UK
+Language: English, Mohawk
+Plot: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+Actors: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+undefined undefined
+my-tweets undefined
+**************************
+*     Top 20 Tweets      *
+**************************
+1.  Jan 22 2018 06:11 PM
+	I need more Tweets!
+2.  Jan 16 2018 09:36 PM
+	tweet tweet
+3.  Jan 16 2018 09:35 PM
+	Working with nodejs
+4.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
+5.  Jan 16 2018 08:39 PM
+	Oh boy Oh boy!
+6.  Jan 15 2018 03:16 PM
+	This is my first tweet!
+my-tweets undefined
+**************************
+**************************
+*     Top 20 Tweets      *
+1.  Jan 22 2018 06:12 PM
+	I am trying to reach 20 total
+2.  Jan 22 2018 06:11 PM
+	I need more Tweets!
+3.  Jan 16 2018 09:36 PM
+	tweet tweet
+4.  Jan 16 2018 09:35 PM
+	Working with nodejs
+5.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
+6.  Jan 16 2018 08:39 PM
+	Oh boy Oh boy!
+7.  Jan 15 2018 03:16 PM
+	This is my first tweet!
+my-tweets undefined
+**************************
+*     Top 20 Tweets      *
+**************************
+1.  Jan 22 2018 06:14 PM
+	18
+2.  Jan 22 2018 06:14 PM
+	17
+3.  Jan 22 2018 06:14 PM
+	16
+4.  Jan 22 2018 06:14 PM
+	15
+5.  Jan 22 2018 06:14 PM
+	14
+6.  Jan 22 2018 06:14 PM
+	13
+7.  Jan 22 2018 06:14 PM
+	12
+8.  Jan 22 2018 06:14 PM
+	11
+9.  Jan 22 2018 06:14 PM
+	10
+10.  Jan 22 2018 06:14 PM
+	9
+11.  Jan 22 2018 06:14 PM
+	8
+12.  Jan 22 2018 06:12 PM
+	I am trying to reach 20 total
+13.  Jan 22 2018 06:11 PM
+	I need more Tweets!
+14.  Jan 16 2018 09:36 PM
+	tweet tweet
+15.  Jan 16 2018 09:35 PM
+	Working with nodejs
+16.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
+17.  Jan 16 2018 08:39 PM
+	Oh boy Oh boy!
+18.  Jan 15 2018 03:16 PM
+	This is my first tweet!
+my-tweets undefined
+**************************
+*     Top 20 Tweets      *
+**************************
+1.  Jan 22 2018 06:15 PM
+	21
+2.  Jan 22 2018 06:15 PM
+	20
+3.  Jan 22 2018 06:15 PM
+	19
+4.  Jan 22 2018 06:14 PM
+	18
+5.  Jan 22 2018 06:14 PM
+	17
+6.  Jan 22 2018 06:14 PM
+	16
+7.  Jan 22 2018 06:14 PM
+	15
+8.  Jan 22 2018 06:14 PM
+	14
+9.  Jan 22 2018 06:14 PM
+	13
+10.  Jan 22 2018 06:14 PM
+	12
+11.  Jan 22 2018 06:14 PM
+	11
+12.  Jan 22 2018 06:14 PM
+	10
+13.  Jan 22 2018 06:14 PM
+	9
+14.  Jan 22 2018 06:14 PM
+	8
+15.  Jan 22 2018 06:12 PM
+	I am trying to reach 20 total
+16.  Jan 22 2018 06:11 PM
+	I need more Tweets!
+17.  Jan 16 2018 09:36 PM
+	tweet tweet
+18.  Jan 16 2018 09:35 PM
+	Working with nodejs
+19.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
+20.  Jan 16 2018 08:39 PM
+	Oh boy Oh boy!
+my-tweets undefined
+**************************
+*     Top 20 Tweets      *
+**************************
+1.  Jan 22 2018 06:15 PM
+	I should have enough now to test!
+2.  Jan 22 2018 06:15 PM
+	21
+3.  Jan 22 2018 06:15 PM
+	20
+4.  Jan 22 2018 06:15 PM
+	19
+5.  Jan 22 2018 06:14 PM
+	18
+	17
+6.  Jan 22 2018 06:14 PM
+7.  Jan 22 2018 06:14 PM
+	16
+8.  Jan 22 2018 06:14 PM
+	15
+9.  Jan 22 2018 06:14 PM
+	14
+10.  Jan 22 2018 06:14 PM
+	13
+	12
+11.  Jan 22 2018 06:14 PM
+12.  Jan 22 2018 06:14 PM
+	11
+13.  Jan 22 2018 06:14 PM
+	10
+14.  Jan 22 2018 06:14 PM
+	9
+15.  Jan 22 2018 06:14 PM
+	8
+16.  Jan 22 2018 06:12 PM
+	I am trying to reach 20 total
+17.  Jan 22 2018 06:11 PM
+	I need more Tweets!
+18.  Jan 16 2018 09:36 PM
+	tweet tweet
+	Working with nodejs
+19.  Jan 16 2018 09:35 PM
+20.  Jan 16 2018 08:41 PM
+	#KangaRooTheKitty
